@@ -69,3 +69,20 @@ void shouldExecuteOneAction() {
 ```
 정적 메서드 mock()으로 필요한 목 객체를 만들고 특정 동작이 실행되었는지 확인한다. verify() 메서드로 특정 메서드가 호출되었는지 확인하는 어서션을 만든다.
 
+## 조건 추가하기
+### 지역 변수 형식 추론
+자바 10은 지역 변수 형식 추론 기능을 지원한다. 형식 추론이란 컴파일러가 정적 형식을 자동으로 추론해 결정하는 기능으로 사용자는 더 이상 명시적으로 형식을 지정할 필요가 없다.
+```
+//명시적 형식으로 지역변수 선언
+Facts env = new Facts();
+BusinessRuleEngine businessRuleEngine = new BusinessRuleEngine(env);
+
+//지역 변수 형식 추론
+var env = new Facts();
+var businessRuleEngine = new BusinessRuleEngine(env);
+```
+
+> var 키워드를 사용한 변수는 final이 아니다.
+var를 이용한 이득은 주관적이다. 따라서 var를 사용해도 가독성에 문제가 없다면 var를 사용하고 그렇지 않다면 var를 사용하지 않는 것이 좋다.
+
+### switch문
